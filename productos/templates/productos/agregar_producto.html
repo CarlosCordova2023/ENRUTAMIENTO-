@@ -1,0 +1,17 @@
+<!-- templates/productos/agregar_producto.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar Producto</title>
+</head>
+<body>
+    <h1>Agregar Producto</h1>
+    <a href="{% url 'lista_productos' %}">Listar Producto</a>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar Producto</button>
+    </form>
+</body>
+</html>

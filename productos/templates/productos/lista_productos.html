@@ -1,0 +1,59 @@
+<!-- templates/productos/lista_productos.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Productos</title>
+</head>
+<body>
+    <h1>Productos</h1>
+    <a href="{% url 'agregar_producto' %}">Agregar Producto</a>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.id }}</td>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.precio }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
+
+<!-- templates/productos.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Información de Productos</title>
+</head>
+<body>
+    <h1>Información de Productos</h1>
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Descripción</th>
+            <th>Vencimiento</th>
+            <th>Fábrica</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>{{ producto.nombre }}</td>
+            <td>{{ producto.precio }}</td>
+            <td>{{ producto.descripcion }}</td>
+            <td>{{ producto.f_vencimiento }}</td>
+            <td>{{ producto.fabricante.nombre }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
